@@ -6,12 +6,10 @@ const container = document.querySelector(".container");
 const debounce = (fn, debounceTime = 0) => {
   let timer;
 
-  return function (...args) {
+  return (...args) => {
     clearTimeout(timer);
 
-    timer = setTimeout(() => {
-      fn.apply(this, args);
-    }, debounceTime);
+    timer = setTimeout(() => fn(...args), debounceTime);
   };
 };
 
